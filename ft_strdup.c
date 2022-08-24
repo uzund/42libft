@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: duzun <duzun@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 22:45:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/03/21 22:52:24 by duzun            ###   ########.fr       */
+/*   Updated: 2022/06/03 00:43:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 // s1 string uzunlugu kadar hafizada yer acar ve s1 icerigini oraya kopyalar
 // herzaman NUL ile sonlandirilir. Yeni hafiza icerigini dondurur.
 // Yeterli bellek yoksa NULL dondurulur.
-
 
 char	*ft_strdup(const char *s1)
 {

@@ -3,12 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: duzun <duzun@student.42.fr>                +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/03/03 21:00:42 by duzun             #+#    #+#              #
-#    Updated: 2022/03/22 03:05:09 by duzun            ###   ########.fr        #
+#    Created: 2022/06/03 22:25:04 by marvin            #+#    #+#              #
+#    Updated: 2022/06/03 22:25:34 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+
 
 NAME	=	libft.a
 LIBFT 	=	libft.h
@@ -52,17 +54,28 @@ SRCS				=	ft_isalpha.c \
 						ft_putnbr_fd.c
 OBJS				=	$(SRCS:.c=.o)
 
+BONUS				=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+					ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+					ft_lstclear.c ft_lstiter.c ft_lstmap.c  
+BONUS_OBJS			= $(BONUS:.c=.o)
+
 all:				$(NAME)
 
 $(NAME):			$(OBJS)
 					ar rcs $(NAME) $(OBJS)
+					@echo "Libft Done !"
 clean:	
-					$(RM) $(OBJS)
+					$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean:				clean
 					$(RM) $(NAME)
 
 re:					fclean $(NAME)
 
+bonus:				$(OBJS) $(BONUS_OBJS)
+					ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+					@echo "Libft Bonus Done !"
+					
+					
 .PHONY:	all clean fclean re
 

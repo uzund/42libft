@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: duzun <duzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 13:06:59 by duzun             #+#    #+#             */
-/*   Updated: 2022/06/03 00:46:10 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/20 03:48:41 by duzun             #+#    #+#             */
+/*   Updated: 2022/01/20 03:54:41 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// c değişkeni ile verilen değer küçük harf ise bu harfi büyük harfe çevirir.
+/*
+* bagli listedeki eleman sayisini bulur.
+*/
 
-int	ft_toupper(int c)
+#include "libft.h"
+
+int	ft_lstsize(t_list *lst)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
+	int	cont;
+
+	cont = 0;
+	while (lst != NULL)
+	{
+		cont++;
+		lst = lst->next;
+	}
+	return (cont);
 }

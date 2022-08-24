@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: duzun <duzun@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/21 13:06:59 by duzun             #+#    #+#             */
-/*   Updated: 2022/06/03 00:46:10 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/20 03:34:24 by duzun             #+#    #+#             */
+/*   Updated: 2022/01/20 03:47:24 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// c değişkeni ile verilen değer küçük harf ise bu harfi büyük harfe çevirir.
+/*
+* bglı listenin başına yeni bir eleman 'new' ekler.
+*/
 
-int	ft_toupper(int c)
+#include "libft.h"
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
-	return (c);
+	new->next = *lst;
+	*lst = new;
 }

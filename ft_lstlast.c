@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/22 03:01:44 by duzun             #+#    #+#             */
-/*   Updated: 2022/06/03 00:40:12 by marvin           ###   ########.fr       */
+/*   Created: 2022/01/20 03:56:30 by duzun             #+#    #+#             */
+/*   Updated: 2022/06/01 22:08:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// n ile verilen integer sayısını fd ile belirtilen tanımlayıcıya 
-// (ekrana, dosya vb.) yazar.
+/*
+* bagli listenin son elemanini dondurur.
+*/
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (n == -2147483648)
+	while (lst != NULL)
 	{
-		ft_putstr_fd("-2147483648", fd);
-		return ;
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
 	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n = n * -1;
-	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd(n % 10 + '0', fd);
+	return (0);
 }

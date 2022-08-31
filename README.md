@@ -1,2 +1,2 @@
 # 42libft
-libft Projesi
+libft Projesi Tamamlandı.

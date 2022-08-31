@@ -6,12 +6,12 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 22:27:05 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/24 05:58:36 by duzun            ###   ########.fr       */
+/*   Updated: 2022/08/31 16:54:45 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 // count ile belirtilen dizgiler icin size ile belirtilen boyut kadar hafızada
 // yer tahsis edilir. Bu hafıza alanı 0 ile doldurulur.
@@ -27,6 +27,7 @@ void	*ft_calloc(size_t count, size_t size)
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
+
 /*
 int	main(void)
 {

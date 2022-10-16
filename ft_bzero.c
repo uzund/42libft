@@ -6,14 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 22:47:20 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:08:53 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/16 14:52:09 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//#include "stdio.h"
+//#include <stdio.h>
+
 // Bu fonksiyon ile gösterilen *s hafıza alanının ilk "n" byte'lık kısmına
-// NULL '0' (sıfır) yazılması sağlanır.
+// NULL '0' (sıfır / NULL) yazılması sağlanır.
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -29,10 +30,15 @@ void	ft_bzero(void *s, size_t n)
 int	main(void)
 {
 	char	str[] = "davut uzun";
-	ft_bzero(str, 2); // 0 dan farklı bir değer girilirse çıktı alınamaz!!
-	// str dizgisinin ilk elemanına ft_memset fonksiyonu ile 
- 	// 'm' karakteri atanmıştır. Dizi "mavut" şekline döner 
-	printf("str dizisinin son hali: %s\n",str);
+
+	ft_bzero(str, 2);
+	// 0 dan farklı bir değer girilirse çıktı alınamaz!!
+	printf("str dizisinin son hali: %s\n", str);
+	printf("str dizisinin ilk iki karakterine NULL atandığından \
+çıktı alınamadı\n");
+	// str dizinin '\0' ile değiştirilmeyen 2. elamanını "v" yazdıralım.
+	printf("str dizisinin 2. elamını : %c\n", str[2]);
+	printf("str[2] yani 2. elamanı değişmediğinden \"v\" ekrana yazıldı.\n");
 	return (0);
 }
 */

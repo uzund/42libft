@@ -6,15 +6,15 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 21:07:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:09:05 by duzun            ###   ########.fr       */
+/*   Updated: 2022/10/18 11:20:41 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+// #include <stdio.h>
 
 // Bu fonksiyon ile c değişkenine verilen değer alfanumerik ise 1 değilse 0
 // döndürür.
-// #include <stdio.h>
 
 int	ft_isalnum(int c)
 {

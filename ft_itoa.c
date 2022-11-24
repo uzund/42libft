@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:54:23 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:09:30 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/24 21:30:46 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 // n ile verilen integer degeri string olarak döndürür.
 
-int	mutlak_deger(int n)
+int	absolute_value(int n)
 {
 	if (n < 0)
 		return (-n);
@@ -47,6 +47,8 @@ char	*ft_itoa(int n)
 
 	len = ft_count(n);
 	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
 	str[len] = '\0';
 	if (n < 0)
 		str[0] = '-';
@@ -55,7 +57,7 @@ char	*ft_itoa(int n)
 	while (n != 0)
 	{
 		--len;
-		str[len] = mutlak_deger(n % 10) + '0';
+		str[len] = absolute_value(n % 10) + '0';
 		n = n / 10;
 	}
 	return (str);

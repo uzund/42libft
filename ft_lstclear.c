@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:20:36 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:10:41 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/24 23:37:23 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*next_lst;
+	t_list	*tmp;
+	t_list	*start;
 
-	current = *lst;
-	while (current != NULL)
+	if (!lst || !del)
+		return ;
+	start = *lst;
+	while (start)
 	{
-		next_lst = current->next;
-		ft_lstdelone(current, del);
-		current = next_lst;
+		tmp = start->next;
+		del(start->content);
+		free(start);
+		start = tmp;
 	}
 	*lst = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 04:10:39 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:10:44 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/24 23:33:51 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 * serbest birakir. 'Sonraki' hafizasi serbest birakilmamalidir.
 */
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
+	if (!lst || !del)
+		return ;
 	del(lst->content);
 	free(lst);
 }

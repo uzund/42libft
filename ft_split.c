@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:48:42 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:11:46 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/25 22:35:24 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,64 +17,82 @@
 * diziyi döndürür.
 */
 
-static int	kelime_say(const char *str, char c)
+static int	ft_count_word(char const *s, char c)
 {
 	int	i;
-	int	tetik;
+	int	word;
 
 	i = 0;
-	tetik = 0;
-	while (*str)
+	word = 0;
+	while (s && s[i])
 	{
-		if (*str != c && tetik == 0)
+		if (s[i] != c)
 		{
-			tetik = 1;
-			i++;
+			word++;
+			while (s[i] != c && s[i])
+				i++;
 		}
-		else if (*str == c)
-			tetik = 0;
-		str++;
+		else
+			i++;
 	}
-	return (i);
+	return (word);
 }
 
-static char	*word_dup(const char *str, int start, int finish)
+static int	ft_size_word(char const *s, char c, int i)
 {
-	char	*word;
+	int	size;
+
+	size = 0;
+	while (s[i] != c && s[i])
+	{
+		size++;
+		i++;
+	}
+	return (size);
+}
+
+static void	ft_free(char **split, int j)
+{
+	while (j-- > 0)
+		free(split[j]);
+	free(split);
+}
+
+static int	ft_split_child(char const *s, char c, char **split, int word)
+{
 	int		i;
+	int		j;
+	int		size;
 
 	i = 0;
-	word = malloc((finish - start + 1) * sizeof(char));
-	while (start < finish)
-		word[i++] = str[start++];
-	word[i] = '\0';
-	return (word);
+	j = -1;
+	while (++j < word)
+	{
+		while (s[i] == c)
+			i++;
+		size = ft_size_word(s, c, i);
+		split[j] = ft_substr(s, i, size);
+		if (!split)
+		{
+			ft_free(split, j);
+			return (0);
+		}
+		i += size;
+	}
+	return (j);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	int		index;
+	int		word;
 	char	**split;
+	int		j;
 
-	split = malloc((kelime_say(s, c) + 1) * sizeof(char *));
-	if (!s || !split)
-		return (0);
-	i = 0;
-	j = 0;
-	index = -1;
-	while (i <= ft_strlen(s))
-	{
-		if (s[i] != c && index < 0)
-			index = i;
-		else if ((s[i] == c || i == ft_strlen(s)) && index >= 0)
-		{
-			split[j++] = word_dup(s, index, i);
-			index = -1;
-		}
-		i++;
-	}
-	split[j] = 0;
+	word = ft_count_word(s, c);
+	split = (char **)malloc((word + 1) * sizeof(char *));
+	if (!split)
+		return (NULL);
+	j = ft_split_child(s, c, split, word);
+	split[j] = NULL;
 	return (split);
 }

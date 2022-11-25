@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 21:51:36 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:12:01 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/25 23:19:17 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 	i = 0;
 	if (n > 0)
 	{
-		while (*(src + i) && i < n - 1)
+		while (src[i] && i < n - 1)
 		{
-			*(dest + i) = *(src + i);
+			dest[i] = src[i];
 			i++;
 		}
-		*(dest + i) = '\0';
+		dest[i] = '\0';
 	}
 	return (ft_strlen(src));
 }

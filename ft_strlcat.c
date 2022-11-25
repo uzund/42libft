@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:13:27 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/24 23:42:46 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/25 22:34:03 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = 0;
 	j = 0;
+	if (size == 0)
+		return (ft_strlen(src));
 	while (dst[i] && i < size)
 		i++;
 	while (src[j] && (i + j + 1) < size)

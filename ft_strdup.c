@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 22:45:13 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:11:43 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/25 23:14:54 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ char	*ft_strdup(const char *s1)
 	if (!dst)
 		return (NULL);
 	i = 0;
-	while (*(s1 + i))
+	while (s1[i])
 	{
-		*(dst + i) = *(s1 + i);
+		dst[i] = s1[i];
 		i++;
 	}
-	*(dst + i) = '\0';
+	dst[i] = '\0';
 	return (dst);
 }

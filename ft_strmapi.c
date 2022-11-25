@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 01:25:18 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:12:10 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/25 23:21:41 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!str)
 		return (NULL);
 	i = 0;
-	while (*(s + i))
+	while (s[i])
 	{
-		*(str + i) = f(i, *(s + i));
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	*(str + i) = 0;
+	str[i] = 0;
 	return (str);
 }
 

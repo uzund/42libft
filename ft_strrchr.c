@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:11:38 by duzun             #+#    #+#             */
-/*   Updated: 2022/08/31 19:12:20 by duzun            ###   ########.fr       */
+/*   Updated: 2022/11/25 23:23:06 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strrchr(const char *s, int c)
 	if (c)
 	{
 		while (i--)
-			if (*(s + i) == (char)c)
+			if (s[i] == (char)c)
 				return ((char *)s + i);
 		return (NULL);
 	}

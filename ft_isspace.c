@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words.c                                   :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 22:12:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/21 23:37:52 by duzun            ###   ########.fr       */
+/*   Created: 2023/02/21 23:30:58 by duzun             #+#    #+#             */
+/*   Updated: 2023/02/21 23:31:07 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words(char *s)
+int	ft_isspace(char *s)
 {
-	int	word;
-	int	i;
-
-	i = 0;
-	word = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] && ft_isin(s[i]))
-			i++;
-		if (s[i])
-			word++;
-		while (s[i] && !ft_isin(s[i]))
-			i++;
+		if (ft_isin(*s))
+			return (1);
+		s++;
 	}
-	return (word);
+	return (0);
 }

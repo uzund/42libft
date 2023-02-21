@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words.c                                   :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 22:12:06 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/21 23:37:52 by duzun            ###   ########.fr       */
+/*   Created: 2023/02/21 23:43:10 by duzun             #+#    #+#             */
+/*   Updated: 2023/02/21 23:43:20 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words(char *s)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	word;
 	int	i;
 
 	i = 0;
-	word = 0;
-	while (s[i])
+	while (s1[i] || s2[i])
 	{
-		while (s[i] && ft_isin(s[i]))
-			i++;
-		if (s[i])
-			word++;
-		while (s[i] && !ft_isin(s[i]))
-			i++;
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		i++;
 	}
-	return (word);
+	return (0);
 }

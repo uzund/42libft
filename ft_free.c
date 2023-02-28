@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 22:15:48 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/28 15:18:43 by duzun            ###   ########.fr       */
+/*   Created: 2023/02/28 15:18:23 by duzun             #+#    #+#             */
+/*   Updated: 2023/02/28 15:22:49 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isin(char c)
+void	ft_free(char **s)
 {
-	int		i;
-	char	*charset;
+	int	i;
 
-	charset = " \t\v\n\r\f";
 	i = 0;
-	while (charset[i])
-	{
-		if (charset[i] == c)
-			return (1);
+	while (s[i])
 		i++;
-	}
-	return (0);
+	while (i >= 0)
+		free(s[i--]);
+	free(s);
 }

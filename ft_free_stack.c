@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isin.c                                          :+:      :+:    :+:   */
+/*   ft_free_stack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 22:15:48 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/28 15:18:43 by duzun            ###   ########.fr       */
+/*   Created: 2023/02/28 15:19:22 by duzun             #+#    #+#             */
+/*   Updated: 2023/02/28 15:21:35 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isin(char c)
+void	ft_free_stack(t_list **stack)
 {
-	int		i;
-	char	*charset;
+	t_list	*lst;
+	t_list	*tmp;
 
-	charset = " \t\v\n\r\f";
-	i = 0;
-	while (charset[i])
+	lst = *stack;
+	while (lst)
 	{
-		if (charset[i] == c)
-			return (1);
-		i++;
+		tmp = lst;
+		lst = lst->next;
+		free(tmp);
 	}
-	return (0);
+	free(stack);
 }

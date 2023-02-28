@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_get_distance.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 23:45:49 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/28 15:28:57 by duzun            ###   ########.fr       */
+/*   Created: 2023/02/28 15:37:50 by duzun             #+#    #+#             */
+/*   Updated: 2023/02/28 15:41:08 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_get_distance(t_list **lst, int index)
 {
-	size_t	i;
+	t_list	*lst_tmp;
+	int		distance;
 
-	i = 0;
-	while (src[i] && i < n)
+	distance = 0;
+	lst_tmp = *lst;
+	while (lst)
 	{
-		dest[i] = src[i];
-		i++;
+		if (lst_tmp->index == index)
+			break ;
+		distance++;
+		lst_tmp = lst_tmp->next;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (distance);
 }

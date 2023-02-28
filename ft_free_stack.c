@@ -6,23 +6,23 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 15:19:22 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/28 15:21:35 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/28 15:40:11 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_stack(t_list **stack)
+void	ft_free_stack(t_list **lst)
 {
-	t_list	*lst;
+	t_list	*lst_tmp;
 	t_list	*tmp;
 
-	lst = *stack;
+	lst_tmp = *lst;
 	while (lst)
 	{
-		tmp = lst;
-		lst = lst->next;
+		tmp = lst_tmp;
+		lst_tmp = lst_tmp->next;
 		free(tmp);
 	}
-	free(stack);
+	free(lst);
 }

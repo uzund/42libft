@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 23:48:42 by duzun             #+#    #+#             */
-/*   Updated: 2023/02/21 23:37:32 by duzun            ###   ########.fr       */
+/*   Updated: 2023/02/28 15:33:52 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_size_word(char const *s, char c, int i)
 	return (size);
 }
 
-static void	ft_free(char **split, int j)
+static void	ft_free_split(char **split, int j)
 {
 	while (j-- > 0)
 		free(split[j]);
@@ -74,7 +74,7 @@ static int	ft_split_child(char const *s, char c, char **split, int word)
 		split[j] = ft_substr(s, i, size);
 		if (!split)
 		{
-			ft_free(split, j);
+			ft_free_split(split, j);
 			return (0);
 		}
 		i += size;

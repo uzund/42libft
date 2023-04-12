@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 03:34:24 by duzun             #+#    #+#             */
-/*   Updated: 2022/11/25 23:03:55 by duzun            ###   ########.fr       */
+/*   Updated: 2023/04/12 20:15:20 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 * bglı listenin başına yeni bir eleman 'new' ekler.
 */
 
-#include "libft.h"
-
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

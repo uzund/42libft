@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_tohex.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 03:48:41 by duzun             #+#    #+#             */
-/*   Updated: 2023/04/12 20:19:55 by duzun            ###   ########.fr       */
+/*   Created: 2023/04/12 20:39:45 by duzun             #+#    #+#             */
+/*   Updated: 2023/04/12 20:39:47 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-* bagli listedeki eleman sayisini bulur.
-*/
-
-int	ft_lstsize(t_list *lst)
+char	*ft_tohex(int n)
 {
-	int	cont;
+	char	*hex;
+	int		temp;
+	int		i;
 
-	cont = 0;
-	while (lst != NULL)
+	i = 0;
+	hex = ft_calloc(sizeof(char), 100);
+	while (n != 0)
 	{
-		cont++;
-		lst = lst->next;
+		temp = n % 16;
+		if (temp < 10)
+			temp += 48;
+		else
+			temp += 55;
+		hex[i++] = temp;
+		n /= 16;
 	}
-	return (cont);
+	hex[i] = '\0';
+	return (hex);
 }

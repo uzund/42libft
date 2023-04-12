@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 03:48:41 by duzun             #+#    #+#             */
-/*   Updated: 2023/04/12 20:19:55 by duzun            ###   ########.fr       */
+/*   Created: 2023/04/12 20:20:39 by duzun             #+#    #+#             */
+/*   Updated: 2023/04/12 20:20:42 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-* bagli listedeki eleman sayisini bulur.
-*/
-
-int	ft_lstsize(t_list *lst)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int	cont;
+	unsigned char	*new_dst;
+	unsigned char	*new_src;
 
-	cont = 0;
-	while (lst != NULL)
+	new_dst = (unsigned char *)dst;
+	new_src = (unsigned char *)src;
+	while (n--)
 	{
-		cont++;
-		lst = lst->next;
+		*new_dst = *new_src;
+		if (*new_src == (unsigned char)c)
+			return ((void *)new_dst + 1);
+		new_dst++;
+		new_src++;
 	}
-	return (cont);
+	return (0);
 }

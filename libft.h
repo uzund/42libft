@@ -6,7 +6,7 @@
 /*   By: duzun <davut@uzun.ist>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:47:37 by duzun             #+#    #+#             */
-/*   Updated: 2023/04/12 21:00:15 by duzun            ###   ########.fr       */
+/*   Updated: 2023/04/12 23:46:18 by duzun            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void	ft_free_stack(t_list **lst);
 int		ft_get_distance(t_list **lst, int index);
 char	*ft_tohex(int n);
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+char	*ft_strcpy(char *dest, const char *src);
 
 #endif

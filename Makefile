@@ -38,25 +38,25 @@ RM	=	rm -f
 FLAGS	= -Wall -Wextra -Werror -g
 
 $(NAME): 
-		@$(CC) $(FLAGS) -c $(SRCS)
-		@ar rc $(NAME) $(OBJS)
-		@echo "\n✅ ${BLUE}Libft Done!$(RESET)"
+	@$(CC) $(FLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@echo "\n✅ ${BLUE}Libft Done!$(RESET)"
 		
 all: $(NAME)
 
 bonus:
-		@$(CC) $(FLAGS) -c $(BONUS)
-		@ar rc $(NAME) $(BONUS_OBJS)
-		@echo "\n✅ ${BLUE}Libft Done!$(RESET)"
+	@$(CC) $(FLAGS) -c $(BONUS)
+	@ar rc $(NAME) $(BONUS_OBJS)
+	@echo "\n✅ ${BLUE}Libft Done!$(RESET)"
 
 clean:
-		@$(RM) $(OBJS) 
-		@$(RM) $(BONUS_OBJS)
-		@echo "🧽 $(GREEN)Libft Clean: $(YELLOW)Removed all the \".o\" files$(RESET)"
+	@$(RM) $(OBJS) 
+	@$(RM) $(BONUS_OBJS)
+	@echo "🧽 $(GREEN)Libft Clean: $(YELLOW)Removed all the \".o\" files$(RESET)"
 
 fclean: clean
-		@$(RM) $(NAME)
-		@echo "🧽 $(GREEN)Libft Fclean: $(YELLOW)Removed the executables$(RESET)"
+	@$(RM) $(NAME)
+	@echo "🧽 $(GREEN)Libft Fclean: $(YELLOW)Removed the executables$(RESET)"
 
 re: fclean all
 
